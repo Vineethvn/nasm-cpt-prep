@@ -1,10 +1,16 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { SAMPLE_PAPER } from '../content/samplePaper'
 import { ItemRenderer } from '../components/items/ItemRenderer'
 import { getItemProgress } from '../lib/storage'
 
 export function SamplePaperPage() {
-  const [index, setIndex] = useState(0)
+  const [searchParams] = useSearchParams()
+  const initialIndex = (() => {
+    const q = Number(searchParams.get('q'))
+    return Number.isInteger(q) && q >= 0 && q < SAMPLE_PAPER.length ? q : 0
+  })()
+  const [index, setIndex] = useState(initialIndex)
   const item = SAMPLE_PAPER[index]
   const answeredCount = SAMPLE_PAPER.filter((it) => getItemProgress(it.id).timesSeen > 0).length
 

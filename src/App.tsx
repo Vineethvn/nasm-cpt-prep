@@ -25,6 +25,9 @@ const CommunicationSorterPage = lazy(() =>
 const NumbersVaultPage = lazy(() =>
   import('./pages/trainers/NumbersVaultPage').then((m) => ({ default: m.NumbersVaultPage })),
 )
+const MockExamPage = lazy(() => import('./pages/MockExamPage').then((m) => ({ default: m.MockExamPage })))
+const MyQuestionsPage = lazy(() => import('./pages/MyQuestionsPage').then((m) => ({ default: m.MyQuestionsPage })))
+const SearchPage = lazy(() => import('./pages/SearchPage').then((m) => ({ default: m.SearchPage })))
 
 function PageFallback() {
   return <div className="p-6 text-sm text-(--color-text-muted)">Loading…</div>
@@ -40,6 +43,9 @@ export default function App() {
             <Route path="modules" element={<ModuleListPage />} />
             <Route path="modules/:moduleId" element={<ModulePage />} />
             <Route path="sample-paper" element={<SamplePaperPage />} />
+            <Route path="mock-exam" element={<MockExamPage />} />
+            <Route path="my-questions" element={<MyQuestionsPage />} />
+            <Route path="search" element={<SearchPage />} />
             <Route path="trainers" element={<TrainersHubPage />} />
             <Route path="trainers/muscle-imbalance" element={<MuscleImbalanceTrainerPage />} />
             <Route path="trainers/acute-variables" element={<AcuteVariablesGridPage />} />

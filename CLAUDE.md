@@ -57,8 +57,10 @@ See `src/types/content.ts` for the authoritative TypeScript types: `Domain`, `Mo
    - Communication Sorter (OARS), data in `src/content/trainers/communicationSorterData.ts`.
    - Numbers Vault — auto-built from every lesson's `mustMemorise` bullets, `src/lib/numbersVault.ts`.
 5. **Sample Paper** (`src/pages/SamplePaperPage.tsx`, data in `src/content/samplePaper.ts`): all 100 questions from the user's NASM sample paper, each with an original explanation and a why-wrong note per option, browsable sequentially with a jump-to-question slider. Answer-key audit in `ANSWER-KEY-AUDIT.md`. Linked from the Modules page.
-6. **Mock exam, My Questions, Search** — planned for M3 (see Milestones below). Not yet built.
-7. **Settings**: exam date, theme (light/dark/system), export/import/reset progress.
+6. **Mock Exam** (`src/pages/MockExamPage.tsx`, logic in `src/lib/mockExam.ts`): 120 questions apportioned by domain weight (with proportional shortfall redistribution when a domain's item bank is smaller than its quota — see `VERIFY.md`), 120-minute countdown timer with auto-submit, no feedback until submission, then score by domain + full per-question review with explanations. Attempt history saved and shown on the intro screen. In-progress exams survive a page refresh (session-scoped).
+7. **My Questions** (`src/pages/MyQuestionsPage.tsx`): add original MCQ or type-in questions from the UI; stored in `myQuestions` in `storage.ts`, included in export/import, and reviewed through the same spaced-repetition system and Weak Spots page as built-in content.
+8. **Search** (`src/pages/SearchPage.tsx`, index in `src/lib/search.ts`): full-text search across every lesson, practice item, sample-paper question, and My Question — matches against complete content text (not just a truncated preview), linking back to the source page.
+9. **Settings**: exam date, theme (light/dark/system), export/import/reset progress.
 
 ---
 
@@ -110,7 +112,7 @@ Done — see `ANSWER-KEY-AUDIT.md`. All 100 questions had complete stems in the 
 
 **M2 (shipped):** Sample Paper module (100 questions with explanations) + answer-key audit. All 19 modules from the syllabus map (§5) across all 6 domains, each with lessons (plain + NASM wording) and practice items — item counts per module currently range ~5–24, short of the ≥25/module target in some modules; see the note under §6 rule 6 below for the plan to top these up. Route-based code-splitting added (`React.lazy`) to keep the bundle lean as content grew.
 
-**M3:** 120-question timed mock exam, My Questions, search, polish (animations, empty states, onboarding tour), Lighthouse ≥ 90 on mobile for performance and accessibility.
+**M3 (core features shipped):** 120-question timed mock exam, My Questions, and search — **done**. Still open: onboarding tour, further animation polish, and a real Lighthouse ≥ 90 audit (not yet run in this environment — no Chrome/Lighthouse CLI available; recommend running `npx lighthouse` against the deployed Vercel URL, or Chrome DevTools' Lighthouse panel, before relying on the ≥90 mobile score).
 
 **Acceptance for every milestone:** works offline after first load; no horizontal scroll at 360 px; `npm run build` passes with zero TypeScript errors; `npm run validate-content` checks every MCQ answer index exists, every item has an explanation, and no duplicate IDs.
 

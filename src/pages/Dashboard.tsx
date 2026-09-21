@@ -21,6 +21,23 @@ export function Dashboard() {
         <ProgressBar pct={readiness} label="Overall readiness" />
       </div>
 
+      <div className="grid grid-cols-2 gap-3">
+        <Link
+          to="/mock-exam"
+          className="rounded-xl border border-(--color-accent) bg-(--color-accent)/5 p-3 hover:bg-(--color-accent)/10"
+        >
+          <div className="font-medium text-sm">Mock Exam</div>
+          <div className="text-xs text-(--color-text-muted)">120 questions, timed</div>
+        </Link>
+        <Link
+          to="/my-questions"
+          className="rounded-xl border border-(--color-border) bg-(--color-surface) p-3 hover:border-(--color-accent)"
+        >
+          <div className="font-medium text-sm">My Questions</div>
+          <div className="text-xs text-(--color-text-muted)">Add your own</div>
+        </Link>
+      </div>
+
       <div className="rounded-xl border border-(--color-border) bg-(--color-surface) p-4 space-y-3">
         <h2 className="font-medium">Mastery by domain</h2>
         {DOMAINS.map((d) => (

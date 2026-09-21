@@ -1,5 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom'
-import { LayoutDashboard, BookOpen, Wrench, AlertTriangle, Settings, Moon, Sun, Monitor } from 'lucide-react'
+import { NavLink, Outlet, Link } from 'react-router-dom'
+import { LayoutDashboard, BookOpen, Wrench, AlertTriangle, Settings, Moon, Sun, Monitor, Search, GraduationCap, PenSquare } from 'lucide-react'
 import { useTheme } from '../lib/theme'
 import { getStore } from '../lib/storage'
 import clsx from 'clsx'
@@ -10,6 +10,12 @@ const NAV = [
   { to: '/trainers', label: 'Trainers', icon: Wrench },
   { to: '/weak-spots', label: 'Weak Spots', icon: AlertTriangle },
   { to: '/settings', label: 'Settings', icon: Settings },
+]
+
+const DESKTOP_EXTRA_NAV = [
+  { to: '/mock-exam', label: 'Mock Exam', icon: GraduationCap },
+  { to: '/my-questions', label: 'My Questions', icon: PenSquare },
+  { to: '/search', label: 'Search', icon: Search },
 ]
 
 export function Layout() {
@@ -42,12 +48,29 @@ export function Layout() {
             {label}
           </NavLink>
         ))}
+        <div className="my-2 border-t border-(--color-border)" />
+        {DESKTOP_EXTRA_NAV.map(({ to, label, icon: Icon }) => (
+          <NavLink
+            key={to}
+            to={to}
+            className={({ isActive }) =>
+              clsx(
+                'flex items-center gap-2 rounded-lg px-3 py-2 text-sm',
+                isActive ? 'bg-(--color-accent)/10 text-(--color-accent) font-medium' : 'text-(--color-text-muted) hover:bg-(--color-border)/40',
+              )
+            }
+          >
+            <Icon size={18} />
+            {label}
+          </NavLink>
+        ))}
       </aside>
 
       <header className="sm:hidden flex items-center justify-between border-b border-(--color-border) px-4 py-3">
         <div className="font-semibold">NASM-CPT Prep</div>
         <div className="flex items-center gap-3">
           {streak > 0 && <span className="text-xs text-(--color-text-muted)">🔥 {streak}</span>}
+          <Link to="/search" aria-label="Search"><Search size={18} /></Link>
           <button aria-label="Toggle theme" onClick={cycleTheme}><ThemeIcon size={18} /></button>
         </div>
       </header>
