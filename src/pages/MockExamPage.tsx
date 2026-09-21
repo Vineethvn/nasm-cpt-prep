@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { generateMockExam, scoreByDomain, type MockExamQuestion } from '../lib/mockExam'
+import { countUnseenInPool, generateMockExam, isUnseen, scoreByDomain, type MockExamQuestion } from '../lib/mockExam'
 import { DOMAINS, DOMAIN_MAP } from '../content/domains'
-import { getStore, saveMockExamAttempt } from '../lib/storage'
+import { getStore, recordAnswer, saveMockExamAttempt } from '../lib/storage'
 import clsx from 'clsx'
 
 const EXAM_MINUTES = 120
@@ -11,6 +11,8 @@ type InProgressExam = {
   questions: MockExamQuestion[]
   answers: Record<string, number>
   startedAt: number
+  /** How many questions the user had never answered when this exam began — the score's honesty indicator. */
+  unseenAtStart: number
 }
 
 function loadInProgress(): InProgressExam | null {
@@ -40,7 +42,10 @@ export function MockExamPage() {
   const [index, setIndex] = useState(0)
   const [startedAt, setStartedAt] = useState<number | null>(null)
   const [now, setNow] = useState(Date.now())
+  const [preferUnseen, setPreferUnseen] = useState(true)
+  const [unseenAtStart, setUnseenAtStart] = useState(0)
   const history = getStore().mockExams
+  const poolStats = countUnseenInPool()
 
   useEffect(() => {
     const existing = loadInProgress()
@@ -48,6 +53,7 @@ export function MockExamPage() {
       setQuestions(existing.questions)
       setAnswers(existing.answers)
       setStartedAt(existing.startedAt)
+      setUnseenAtStart(existing.unseenAtStart ?? 0)
       setPhase('active')
     }
   }, [])
@@ -69,20 +75,23 @@ export function MockExamPage() {
   }, [remainingMs, phase])
 
   function startExam() {
-    const q = generateMockExam(120)
+    const q = generateMockExam(120, { preferUnseen })
     const start = Date.now()
+    // Snapshot before any answer is recorded, since finishing the exam marks every question as seen.
+    const unseen = q.filter((x) => isUnseen(x.item.id)).length
     setQuestions(q)
     setAnswers({})
     setIndex(0)
     setStartedAt(start)
+    setUnseenAtStart(unseen)
     setPhase('active')
-    saveInProgress({ questions: q, answers: {}, startedAt: start })
+    saveInProgress({ questions: q, answers: {}, startedAt: start, unseenAtStart: unseen })
   }
 
   function choose(itemId: string, optionIndex: number) {
     const next = { ...answers, [itemId]: optionIndex }
     setAnswers(next)
-    saveInProgress({ questions, answers: next, startedAt: startedAt! })
+    saveInProgress({ questions, answers: next, startedAt: startedAt!, unseenAtStart })
   }
 
   function finishExam() {
@@ -95,6 +104,12 @@ export function MockExamPage() {
       scorePct: totalQuestions > 0 ? (totalCorrect / totalQuestions) * 100 : 0,
       byDomain,
     })
+    // Feed every question into spaced repetition: it now counts as "seen" for future
+    // unseen-first exams, and wrong (or skipped) answers drop to Leitner box 1 so they
+    // surface in Weak Spots.
+    for (const { item } of questions) {
+      recordAnswer(item.id, answers[item.id] === item.answer)
+    }
     saveInProgress(null)
     setPhase('review')
   }
@@ -116,6 +131,23 @@ export function MockExamPage() {
             submit — then you get a full score breakdown by domain and a review of every question.
           </p>
           <p className="text-sm text-(--color-text-muted)">Scaled pass mark: 70%.</p>
+
+          <label className="flex items-start gap-3 rounded-lg border border-(--color-border) p-3 cursor-pointer">
+            <input
+              type="checkbox"
+              className="mt-1 accent-(--color-accent)"
+              checked={preferUnseen}
+              onChange={(e) => setPreferUnseen(e.target.checked)}
+            />
+            <span className="text-sm">
+              <span className="font-medium">Prioritize questions I haven't seen yet</span>
+              <span className="block text-(--color-text-muted)">
+                Keeps the score an honest readiness signal after days of drilling the same bank.{' '}
+                {poolStats.unseen} of {poolStats.total} exam-eligible questions are still new to you.
+              </span>
+            </span>
+          </label>
+
           <button
             className="w-full rounded-lg bg-(--color-accent) px-4 py-3 text-(--color-accent-fg) font-medium"
             onClick={startExam}
@@ -243,6 +275,11 @@ export function MockExamPage() {
         </div>
         <div className="text-sm text-(--color-text-muted)">
           {totalCorrect} of {questions.length} correct · {scorePct >= 70 ? 'Pass' : 'Below 70% pass mark'}
+        </div>
+        <div className="text-xs text-(--color-text-muted) pt-1">
+          {unseenAtStart} of {questions.length} questions were new to you when this exam started
+          {unseenAtStart < questions.length / 2 && ' — treat this score as optimistic; most questions were ones you had practiced'}
+          .
         </div>
       </div>
 
