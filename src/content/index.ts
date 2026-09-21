@@ -8,6 +8,8 @@ import { nervousSkeletalMuscular } from './modules/d1-nervous-skeletal-muscular'
 import { endocrineCardiorespBioenergetics } from './modules/d1-endocrine-cardioresp-bioenergetics'
 import { biomechanicsHms } from './modules/d1-biomechanics-hms'
 import { nutrition } from './modules/d1-nutrition'
+import { intakeVitals } from './modules/d2-intake-vitals'
+import { performanceTesting } from './modules/d2-performance-testing'
 
 export const MODULES: Module[] = [
   optModel,
@@ -19,6 +21,8 @@ export const MODULES: Module[] = [
   endocrineCardiorespBioenergetics,
   biomechanicsHms,
   nutrition,
+  intakeVitals,
+  performanceTesting,
 ]
 
 export const MODULE_MAP: Record<string, Module> = Object.fromEntries(MODULES.map((m) => [m.id, m]))
