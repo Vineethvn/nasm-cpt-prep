@@ -56,8 +56,9 @@ See `src/types/content.ts` for the authoritative TypeScript types: `Domain`, `Mo
    - Stages of Change game, data in `src/content/trainers/stagesOfChangeData.ts`.
    - Communication Sorter (OARS), data in `src/content/trainers/communicationSorterData.ts`.
    - Numbers Vault — auto-built from every lesson's `mustMemorise` bullets, `src/lib/numbersVault.ts`.
-5. **Mock exam, Sample Paper module, My Questions, Search** — planned for M2/M3 (see Milestones below). Not yet built.
-6. **Settings**: exam date, theme (light/dark/system), export/import/reset progress.
+5. **Sample Paper** (`src/pages/SamplePaperPage.tsx`, data in `src/content/samplePaper.ts`): all 100 questions from the user's NASM sample paper, each with an original explanation and a why-wrong note per option, browsable sequentially with a jump-to-question slider. Answer-key audit in `ANSWER-KEY-AUDIT.md`. Linked from the Modules page.
+6. **Mock exam, My Questions, Search** — planned for M3 (see Milestones below). Not yet built.
+7. **Settings**: exam date, theme (light/dark/system), export/import/reset progress.
 
 ---
 
@@ -82,8 +83,8 @@ Full topic bullets for each domain are in the original project brief (kept in co
 2. **Explain the logic, not just the fact** (e.g. muscle-imbalance direction rule).
 3. **Every MCQ explains why each wrong option is wrong** (`whyWrong` array, parallel to `options`).
 4. **No invented facts.** Anything uncertain is listed in `VERIFY.md` rather than guessed.
-5. **Original wording for all original questions** — never copy from paid NASM materials. The sample-PDF questions (once supplied) are the user's own study material and may be used as-is.
-6. Target volume: ≥ 25 practice items per module, ≥ 500 items total, plus the sample-paper questions once added.
+5. **Original wording for all original questions** — never copy from paid NASM materials. The 100 sample-paper questions are the user's own study material and are used as-is; the surrounding explanations/whyWrong text is original.
+6. Target volume: ≥ 25 practice items per module, ≥ 500 items total, plus the 100 sample-paper questions (already added).
 
 ---
 
@@ -99,7 +100,7 @@ Kept as data, not prose, so they can't drift out of sync with the code:
 
 ## 8. Sample-paper answer key audit
 
-Not yet done — blocked on `source/Questions_of_NASM_CPT.pdf` (98 questions), which the user will provide. Once supplied, parse it into a Sample Paper module with full explanations and produce `ANSWER-KEY-AUDIT.md` per the original spec (Q25/Q86 stems reconstructed from the answer key only, clearly labelled; flag any answer that looks wrong, e.g. the "most preventable cause of death" question).
+Done — see `ANSWER-KEY-AUDIT.md`. All 100 questions had complete stems in the supplied PDF (no reconstruction needed). Two items are flagged: Q94 ("most preventable cause of death" — key says Obesity, tobacco-use counterpoint noted) and Q47 (WHR high-risk distractor ambiguity). Everything else in the key was cross-checked against `CLAUDE.md` §7 canonical facts and confirmed consistent.
 
 ---
 
@@ -107,7 +108,7 @@ Not yet done — blocked on `source/Questions_of_NASM_CPT.pdf` (98 questions), w
 
 **M1 (shipped):** project setup, PWA, storage + export/import, dashboard with countdown, module page (Learn / Type it / Quiz), answer-matching + hint ladder, spaced repetition, and 5 written modules (OPT Model & Periodization, Acute Variables, Muscle Imbalances, VT & Zone Lab, Stages of Change & Communication) plus all 6 special trainers including Numbers Vault. `npm run build` passes with zero TypeScript errors; `npm run validate-content` passes.
 
-**M2:** all remaining D1–D6 modules with lessons and ≥ 25 items each; Sample Paper module (98 questions with explanations) + answer-key audit — once the source PDF is supplied.
+**M2 (partially shipped):** Sample Paper module (100 questions with explanations) + answer-key audit — **done**. Still open: all remaining D1–D6 lesson modules with ≥ 25 items each (only 5 modules exist so far, covering a subset of the syllabus map in §5).
 
 **M3:** 120-question timed mock exam, My Questions, search, polish (animations, empty states, onboarding tour), Lighthouse ≥ 90 on mobile for performance and accessibility.
 

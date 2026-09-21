@@ -12,6 +12,7 @@ import { VTZoneLabPage } from './pages/trainers/VTZoneLabPage'
 import { StagesOfChangePage } from './pages/trainers/StagesOfChangePage'
 import { CommunicationSorterPage } from './pages/trainers/CommunicationSorterPage'
 import { NumbersVaultPage } from './pages/trainers/NumbersVaultPage'
+import { SamplePaperPage } from './pages/SamplePaperPage'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route index element={<Dashboard />} />
           <Route path="modules" element={<ModuleListPage />} />
           <Route path="modules/:moduleId" element={<ModulePage />} />
+          <Route path="sample-paper" element={<SamplePaperPage />} />
           <Route path="trainers" element={<TrainersHubPage />} />
           <Route path="trainers/muscle-imbalance" element={<MuscleImbalanceTrainerPage />} />
           <Route path="trainers/acute-variables" element={<AcuteVariablesGridPage />} />

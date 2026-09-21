@@ -15,6 +15,7 @@ writeFileSync(`${outDir}/package.json`, JSON.stringify({ type: 'commonjs' }))
 const require = createRequire(import.meta.url)
 const mod = require(`../${outDir}/content/index.js`)
 const { MODULES } = mod
+const { SAMPLE_PAPER } = require(`../${outDir}/content/samplePaper.js`)
 
 let errors = []
 const seenIds = new Set()
@@ -52,10 +53,22 @@ for (const m of MODULES) {
   }
 }
 
+for (const item of SAMPLE_PAPER) {
+  if (seenIds.has(item.id)) errors.push(`Duplicate item id: ${item.id}`)
+  seenIds.add(item.id)
+  if (item.answer < 0 || item.answer >= item.options.length) {
+    errors.push(`Sample paper item ${item.id}: answer index ${item.answer} out of range for ${item.options.length} options`)
+  }
+  if (!item.explanation) errors.push(`Sample paper item ${item.id} missing explanation`)
+  if (item.whyWrong.length !== item.options.length) {
+    errors.push(`Sample paper item ${item.id}: whyWrong length (${item.whyWrong.length}) does not match options length (${item.options.length})`)
+  }
+}
+
 if (errors.length > 0) {
   console.error(`Content validation FAILED with ${errors.length} error(s):`)
   errors.forEach((e) => console.error(' - ' + e))
   process.exit(1)
 } else {
-  console.log(`Content validation passed: ${MODULES.length} modules, ${seenIds.size} unique ids.`)
+  console.log(`Content validation passed: ${MODULES.length} modules, ${SAMPLE_PAPER.length} sample-paper items, ${seenIds.size} unique ids.`)
 }
