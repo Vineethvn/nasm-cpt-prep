@@ -82,6 +82,8 @@ export type ScenarioItem = {
   options: string[]
   answer: number
   explanation: string
+  /** Parallel to `options`; the correct option's entry is an empty string. */
+  whyWrong?: string[]
   tags: string[]
 }
 

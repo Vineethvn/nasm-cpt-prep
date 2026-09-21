@@ -42,9 +42,14 @@ export function ScenarioAnswer({ item, onDone }: { item: ScenarioItem; onDone?: 
         })}
       </div>
       {selected !== null && (
-        <p className={selected === item.answer ? 'text-(--color-success) text-sm' : 'text-(--color-danger) text-sm'}>
-          {selected === item.answer ? '✓ Correct.' : '✗ Not quite.'} {item.explanation}
-        </p>
+        <div className="text-sm space-y-1">
+          <p className={selected === item.answer ? 'text-(--color-success)' : 'text-(--color-danger)'}>
+            {selected === item.answer ? '✓ Correct.' : '✗ Not quite.'} {item.explanation}
+          </p>
+          {selected !== item.answer && item.whyWrong?.[selected] && (
+            <p className="text-(--color-text-muted)">Why your choice is wrong: {item.whyWrong[selected]}</p>
+          )}
+        </div>
       )}
     </div>
   )
