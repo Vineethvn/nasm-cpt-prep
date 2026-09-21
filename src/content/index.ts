@@ -10,6 +10,11 @@ import { biomechanicsHms } from './modules/d1-biomechanics-hms'
 import { nutrition } from './modules/d1-nutrition'
 import { intakeVitals } from './modules/d2-intake-vitals'
 import { performanceTesting } from './modules/d2-performance-testing'
+import { specialPopulations } from './modules/d3-special-populations'
+import { warmupFlexibility } from './modules/d4-warmup-flexibility'
+import { coreBalancePlyoSaq } from './modules/d4-core-balance-plyo-saq'
+import { resistanceTechnique } from './modules/d4-resistance-technique'
+import { modalities } from './modules/d4-modalities'
 
 export const MODULES: Module[] = [
   optModel,
@@ -23,6 +28,11 @@ export const MODULES: Module[] = [
   nutrition,
   intakeVitals,
   performanceTesting,
+  specialPopulations,
+  warmupFlexibility,
+  coreBalancePlyoSaq,
+  resistanceTechnique,
+  modalities,
 ]
 
 export const MODULE_MAP: Record<string, Module> = Object.fromEntries(MODULES.map((m) => [m.id, m]))

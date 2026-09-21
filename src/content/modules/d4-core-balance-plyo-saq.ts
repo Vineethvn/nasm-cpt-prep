@@ -1,0 +1,86 @@
+import type { Module } from '../../types/content'
+
+export const coreBalancePlyoSaq: Module = {
+  id: 'd4-core-balance-plyo-saq',
+  domainId: 'd4',
+  title: 'Core, Balance, Plyometric & SAQ Training',
+  estMinutes: 45,
+  lessons: [
+    {
+      id: 'cbps-l1',
+      title: 'Core training: local vs. global, and the progression',
+      plain: `Core exercises target two muscle groups. **Local** (deep) muscles stabilize the spine segment-by-segment — think transverse abdominis, multifidus — trained with exercises like planks, floor bridges, and draw-in maneuvers. **Global** (superficial) muscles produce larger movements — think rectus abdominis, obliques — trained with exercises like crunches and cable rotations. Progression follows the same 3 stages as everything else: **stabilization** (floor bridge, draw-in — don't hyperextend the low back on a bridge), **strength** (crunches, cable rotations), and **power** (medicine ball throws). Correct core progression for function: **intervertebral stability** first (deepest, smallest stabilizers) → **lumbopelvic stability** next → **movement efficiency** last (full-body, functional control).`,
+      nasm: `Local (deep) core stabilizers, such as the transverse abdominis and multifidus, control intervertebral and lumbopelvic stability. Global (superficial) core muscles, such as the rectus abdominis and obliques, produce larger torso movements. Core training progresses through stabilization (e.g., floor bridge, draw-in maneuver), strength (e.g., crunches, cable rotations), and power (e.g., medicine ball throws) levels, following the functional progression of intervertebral stability, then lumbopelvic stability, then movement efficiency.`,
+      memoryHook: `Core progression: small-to-big — Intervertebral (single segment) → Lumbopelvic (whole pelvis/spine) → Movement efficiency (whole body).`,
+      mustMemorise: [
+        'Local core muscles = deep stabilizers (transverse abdominis, multifidus)',
+        'Global core muscles = superficial movers (rectus abdominis, obliques)',
+        'Core progression: intervertebral stability → lumbopelvic stability → movement efficiency',
+        'Floor bridge = stabilization-level core exercise; don\'t hyperextend the low back',
+      ],
+    },
+    {
+      id: 'cbps-l2',
+      title: 'Core, balance, and plyometric acute variables',
+      plain: `Reps/sets/tempo for core and balance training follow the same 3-tier structure: **stabilization** = 12-20 reps, 1-4 sets, slow tempo; **strength** = 8-12 reps, 2-3 sets, medium tempo; **power** = 8-12 reps, 2-3 sets, fast/controlled tempo. Plyometrics uses a similar structure but with different rep ranges and an important addition: **stabilization-level plyometrics use 5-8 reps and require a 3-5 second landing hold** — the whole point being to nail landing mechanics before adding speed.`,
+      nasm: `Core and balance training acute variables: stabilization level uses 12–20 repetitions, 1–4 sets, slow tempo; strength level uses 8–12 repetitions, 2–3 sets, medium tempo; power level uses 8–12 repetitions, 2–3 sets, fast/controlled tempo. Plyometric training acute variables: stabilization level uses 5–8 repetitions with a 3–5 second landing stabilization hold, 1–3 sets; strength level uses 8–10 repetitions, 2–3 sets, medium tempo; power level uses 8–10 repetitions, 2–3 sets, fast tempo.`,
+      mustMemorise: [
+        'Core/balance stabilization: 12–20 reps, 1–4 sets, slow tempo',
+        'Plyometric stabilization: 5–8 reps, 3–5 second landing hold, 1–3 sets',
+      ],
+    },
+    {
+      id: 'cbps-l3',
+      title: 'Plyometric progression: landing before jumping',
+      plain: `Plyometrics involve 3 phases every rep: **eccentric** (loading — you absorb force, like the downward part of a jump), **amortization** (the brief transition pause between loading and releasing), and **concentric** (the explosive release — the jump itself). This load-and-release pattern is called the **stretch-shortening cycle**. The **integrated performance paradigm** states that safe, controlled movement during plyometrics requires **neuromuscular stabilization** first — before power, speed, or strength can be safely expressed. This is why the very first thing to build when progressing a client to more dynamic plyometrics is stabilization, form, and landing mechanics — not explosiveness or speed. If a client struggles to maintain form on an exercise like a tuck jump, the correct regression is adding a stabilization pause between reps, not doing something more explosive.`,
+      nasm: `Plyometric exercise consists of an eccentric (loading) phase, an amortization phase (the transition between loading and unloading), and a concentric (unloading) phase, collectively known as the stretch-shortening cycle. Per the integrated performance paradigm, neuromuscular stabilization is a prerequisite for safe, controlled movement during plyometric training. When progressing a client to more dynamic plyometric exercises, stabilization, form, and landing mechanics must be established first. Regressions for plyometric exercises where form breaks down include adding a stabilization pause between repetitions.`,
+      mustMemorise: [
+        'Plyometric phases: eccentric (load) → amortization (transition) → concentric (release) = stretch-shortening cycle',
+        'Integrated performance paradigm: neuromuscular stabilization is the prerequisite for safe plyometric control',
+        'Regression for poor plyometric form: add a stabilization pause between reps',
+      ],
+    },
+    {
+      id: 'cbps-l4',
+      title: 'SAQ training: frontside/backside mechanics and programming',
+      plain: `SAQ = speed, agility, quickness. Sprint mechanics split into **frontside** (the lead leg: hip flexion, knee extension, ankle dorsiflexion, driving forward) and **backside** (the rear leg: hip extension, knee flexion transitioning to extension, ankle plantarflexion, pushing off). SAQ programming varies by population: **beginners** rest 15-60 seconds between reps; **young athletes** perform 1-4 sets per drill; **weight-loss clients** perform 3-4 sets per drill (these numbers, confirmed against real exam questions, are worth memorizing precisely).`,
+      nasm: `Frontside mechanics describe the lead leg during sprinting: hip flexion, knee extension, and ankle dorsiflexion as the leg drives forward. Backside mechanics describe the rear leg: hip extension, knee flexion, and ankle plantarflexion during ground push-off. SAQ programming: beginner clients rest 15–60 seconds between repetitions; young athletes perform 1–4 sets per drill; weight-loss-focused clients perform 3–4 sets per drill.`,
+      mustMemorise: [
+        'Frontside mechanics = lead leg (hip flexion, knee extension, ankle dorsiflexion)',
+        'Backside mechanics = rear leg (hip extension, ankle plantarflexion at push-off)',
+        'SAQ rest for beginners: 15–60 seconds',
+        'SAQ sets for young athletes: 1–4 sets',
+        'SAQ sets for weight-loss clients: 3–4 sets',
+      ],
+    },
+  ],
+  items: [
+    { kind: 'typein', id: 'cbps-t1', tags: ['core'], prompt: 'What is the first stage of core progression, targeting the smallest, deepest stabilizers?', accept: ['intervertebral stability', 'intervertebral'], hints: ['Between individual spinal segments.', 'I____________ stability'], explanation: 'Intervertebral stability is the first stage of core progression.' },
+    { kind: 'typein', id: 'cbps-t2', tags: ['core'], prompt: 'What is the final stage of core progression, targeting whole-body functional control?', accept: ['movement efficiency', 'movement efficiency stage'], hints: ['Two words.', 'M________ E__________'], explanation: 'Movement efficiency is the final stage of core progression.' },
+    { kind: 'typein', id: 'cbps-t3', tags: ['core'], prompt: 'Name a core muscle considered "local" (deep stabilizer).', accept: ['transverse abdominis', 'multifidus', 'ta', 'tva'], hints: ['Deep abdominal muscle.', 'T________ A________'], explanation: 'Transverse abdominis and multifidus are local (deep) core stabilizers.' },
+    { kind: 'typein', id: 'cbps-t4', tags: ['plyometrics'], prompt: 'Name the 3 phases of a plyometric movement, in order.', accept: ['eccentric amortization concentric', 'eccentric, amortization, concentric'], hints: ['Load, pause, release.', 'E_________, A___________, C__________'], explanation: 'Plyometric phases: eccentric (load) → amortization (transition) → concentric (release).' },
+    { kind: 'typein', id: 'cbps-t5', tags: ['plyometrics'], prompt: 'What is the load-and-release pattern of plyometrics called?', accept: ['stretch-shortening cycle', 'stretch shortening cycle'], hints: ['Involves "stretch" and "shortening."', 'S_______-S_________ Cycle'], explanation: 'This is called the stretch-shortening cycle.' },
+    { kind: 'typein', id: 'cbps-t6', tags: ['plyometrics'], prompt: 'What must be established first, per the integrated performance paradigm, before dynamic plyometrics?', accept: ['neuromuscular stabilization', 'stabilization'], hints: ['Involves "stabilization."', 'N____________ S____________'], explanation: 'Neuromuscular stabilization must be established first, per the integrated performance paradigm.' },
+    { kind: 'typein', id: 'cbps-t7', tags: ['plyometrics'], prompt: 'Plyometric stabilization-level reps require how many seconds of landing hold?', accept: ['3-5 seconds', '3-5 sec', '3 to 5 seconds'], hints: ['A small range.', '_-_ seconds'], explanation: 'Stabilization-level plyometrics require a 3–5 second landing hold.' },
+    { kind: 'typein', id: 'cbps-t8', tags: ['saq'], prompt: 'Which leg is involved in "frontside" sprint mechanics?', accept: ['lead leg', 'the lead leg'], hints: ['The forward-driving leg.', 'L___ leg'], explanation: 'Frontside mechanics involve the lead leg.' },
+    { kind: 'typein', id: 'cbps-t9', tags: ['saq'], prompt: 'What ankle action occurs in the rear leg during backside sprint mechanics (push-off)?', accept: ['ankle plantar flexion', 'plantarflexion', 'plantar flexion'], hints: ['Pointing the toes down.', 'Ankle P_______ F______'], explanation: 'Backside mechanics involve ankle plantarflexion at push-off.' },
+    { kind: 'typein', id: 'cbps-t10', tags: ['saq'], prompt: 'Recommended rest between SAQ reps for beginner clients?', accept: ['15-60 seconds', '15 to 60 seconds', '15-60 sec'], hints: ['A range.', '__-__ seconds'], explanation: 'Beginners rest 15–60 seconds between SAQ reps.' },
+    { kind: 'typein', id: 'cbps-t11', tags: ['saq'], prompt: 'Recommended sets per SAQ drill for weight-loss clients?', accept: ['3-4 sets', '3 or 4 sets', '3-4'], hints: ['A small range.', '_-_ sets'], explanation: 'Weight-loss clients perform 3–4 sets per SAQ drill.' },
+    {
+      kind: 'mcq', id: 'cbps-m1', tags: ['plyometrics'], source: 'original',
+      prompt: 'A client loses control and form during tuck jumps. What is the appropriate regression?',
+      options: ['Increase jump height', 'Add a stabilization pause between reps', 'Increase speed', 'Switch to a single-leg power exercise'],
+      answer: 1,
+      explanation: 'Adding a stabilization pause between reps rebuilds landing control before continuing with more dynamic plyometric work.',
+      whyWrong: ['Increasing jump height would make the exercise harder, the opposite of a regression.', '', 'Increasing speed would make the exercise harder, the opposite of a regression.', 'Switching to an unrelated exercise is not the standard plyometric regression technique.'],
+    },
+    {
+      kind: 'mcq', id: 'cbps-m2', tags: ['core'], source: 'original',
+      prompt: 'Which of the following core exercises best suits stabilization-level training?',
+      options: ['Cable rotation', 'Medicine ball throw', 'Floor bridge', 'Weighted crunch'],
+      answer: 2,
+      explanation: 'The floor bridge is a classic Phase 1 stabilization-level core exercise.',
+      whyWrong: ['Cable rotation is a strength-level global-core exercise.', 'Medicine ball throws are power-level exercises.', '', 'Weighted crunches are strength-level, not stabilization-level.'],
+    },
+  ],
+}

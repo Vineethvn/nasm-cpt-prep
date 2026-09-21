@@ -1,0 +1,76 @@
+import type { Module } from '../../types/content'
+
+export const specialPopulations: Module = {
+  id: 'd3-special-populations',
+  domainId: 'd3',
+  title: 'Special Populations & Chronic Disease',
+  estMinutes: 35,
+  lessons: [
+    {
+      id: 'sp-l1',
+      title: 'Why chronic disease matters to a personal trainer',
+      plain: `Chronic diseases and conditions (heart disease, diabetes, obesity, etc.) are the leading cause of death worldwide — far more than acute illnesses like the flu, which resolve. This is why NASM frames the personal trainer's role on the **healthcare continuum** as **preventive care**: helping otherwise-healthy clients avoid these long-term conditions through exercise, before they need medical treatment.`,
+      nasm: `Chronic diseases and conditions represent the leading cause of death globally, distinguished from acute diseases (short-term, resolvable illnesses such as influenza). On the healthcare continuum, the Certified Personal Trainer's role is classified as preventive care, working with generally healthy populations to reduce the risk of chronic disease.`,
+      mustMemorise: ['Chronic diseases/conditions = leading cause of death worldwide', 'A personal trainer\'s role on the healthcare continuum = preventive care'],
+    },
+    {
+      id: 'sp-l2',
+      title: 'Older adults',
+      plain: `Older adults must complete the PAR-Q+ before starting any program with a trainer — this population carries higher baseline risk. Resistance training is especially valuable here because it directly combats **sarcopenia** (age-related loss of muscle mass, strength, and power) in a way that pure cardio doesn't. Bone health matters too: after roughly 10% bone density loss, hip fracture risk increases by about 2.5 times — another reason resistance training (which strengthens bone via Wolff's law) matters for aging clients.`,
+      nasm: `Older adults must complete the PAR-Q+ prior to beginning an exercise program with a Certified Personal Trainer. Resistance training is a particularly effective intervention against sarcopenia — the age-related loss of muscle mass, strength, and power. A bone density loss of approximately 10% is associated with an approximately 2.5-fold increase in hip fracture risk, underscoring the value of resistance training for skeletal health in aging populations.`,
+      mustMemorise: [
+        'Older adults must complete PAR-Q+ before starting a program',
+        'Resistance training is the key intervention against sarcopenia',
+        '10% bone density loss → ~2.5x increase in hip fracture risk',
+      ],
+    },
+    {
+      id: 'sp-l3',
+      title: 'Obesity',
+      plain: `Obese clients need thoughtful exercise selection. Avoid supine (lying flat on the back) or prone (face-down) core positions early on — these can cause discomfort and blood-pressure swings (hypotensive/hypertensive reactions). Favor positions like the **incline plank** instead. A commonly cited minimum weekly energy-expenditure goal (combined activity + exercise) for obese clients is around 1,200 kcal.`,
+      nasm: `For obese clients, core exercises should avoid supine or prone positions initially, favoring options such as the incline plank to maximize comfort and reduce risk of hypotensive or hypertensive reactions. A minimum weekly energy expenditure goal of approximately 1,200 kcal, from combined physical activity and exercise, is a commonly cited target for obese clients.`,
+      mustMemorise: ['Avoid supine/prone core positions for obese clients early on; use incline plank instead', 'Minimum weekly energy-expenditure goal for obese clients: ~1,200 kcal'],
+    },
+    {
+      id: 'sp-l4',
+      title: 'Diabetes, hypertension, and other chronic conditions',
+      plain: `**Type 1 diabetes**: the pancreas produces little or no insulin (often diagnosed young, requires insulin therapy). **Type 2 diabetes**: the body becomes resistant to insulin (often lifestyle-related, more common in adults, but not classified as "acute"). Trainers should be aware of medications and blood-sugar management around workouts but never prescribe treatment. Other conditions requiring awareness and appropriate program modification include hypertension, coronary heart disease, osteoporosis, arthritis, cancer, lung disease, and intermittent claudication (leg pain from reduced blood flow, often triggered by walking).`,
+      nasm: `Type 1 diabetes results from insufficient insulin production by the pancreas. Type 2 diabetes results from insulin resistance and/or relative insulin deficiency, and is classified as a chronic condition. Certified Personal Trainers must be aware of, but not prescribe treatment for, chronic conditions including hypertension, coronary heart disease, osteoporosis, arthritis, cancer, lung disease, and intermittent claudication, adjusting program design appropriately and referring out as needed.`,
+      mustMemorise: ['Type 1 diabetes = pancreas does not produce enough insulin', 'Both type 1 and type 2 diabetes are chronic (not acute) conditions'],
+    },
+    {
+      id: 'sp-l5',
+      title: 'Pregnancy and youth training',
+      plain: `Pregnant clients and youth clients both need program modifications specific to their population — but the core principle for both is the same as any special population: screen appropriately, follow population-specific guidelines, and never exceed your scope of practice. For youth specifically, appropriate volume/rest guidelines differ from adult norms (e.g., SAQ training for young athletes is generally programmed at 1-4 sets per drill, versus other set ranges used for adult goals like weight loss).`,
+      nasm: `Pregnant and youth clients each require population-specific modifications to standard program design, informed by current guidelines and appropriate screening. For SAQ (speed, agility, quickness) training specifically, young athletes are generally programmed for 1–4 sets per drill, which differs from set ranges used for other populations and goals.`,
+      mustMemorise: ['SAQ training for young athletes: 1–4 sets per drill'],
+    },
+  ],
+  items: [
+    { kind: 'typein', id: 'sp-t1', tags: ['chronic-disease'], prompt: 'What type of health concern is the leading cause of death worldwide?', accept: ['chronic diseases and conditions', 'chronic disease', 'chronic diseases'], hints: ['Not "acute."', 'C_______ diseases and conditions'], explanation: 'Chronic diseases and conditions are the leading cause of death worldwide.' },
+    { kind: 'typein', id: 'sp-t2', tags: ['chronic-disease'], prompt: 'On the healthcare continuum, how is a personal trainer\'s role classified?', accept: ['preventive care'], hints: ['Helping before problems start.', 'P_________ care'], explanation: 'A personal trainer\'s role is classified as preventive care.' },
+    { kind: 'typein', id: 'sp-t3', tags: ['older-adults'], prompt: 'What must older adults complete before starting an exercise program with a trainer?', accept: ['par-q+', 'parq+'], hints: ['Same questionnaire as everyone, but non-negotiable here.', 'PAR-Q_'], explanation: 'Older adults must complete the PAR-Q+ before starting.' },
+    { kind: 'typein', id: 'sp-t4', tags: ['older-adults'], prompt: 'What is the age-related loss of muscle mass, strength, and power called?', accept: ['sarcopenia'], hints: ['Opposite of "hypertrophy."', 'S________'], explanation: 'Sarcopenia is age-related loss of muscle mass, strength, and power; resistance training is the key countermeasure.' },
+    { kind: 'typein', id: 'sp-t5', tags: ['older-adults'], prompt: 'A 10% loss of bone density increases hip fracture risk by roughly how many times?', accept: ['2.5', '2.5x', '2.5 times'], hints: ['A decimal number.', '_.5'], explanation: '10% bone density loss increases hip fracture risk by roughly 2.5x.' },
+    { kind: 'typein', id: 'sp-t6', tags: ['obesity'], prompt: 'What core exercise position is best for obese clients to maximize comfort and avoid BP swings?', accept: ['incline plank'], hints: ['Not flat on the floor.', 'I______ plank'], explanation: 'The incline plank avoids the supine/prone positions that can cause discomfort and BP reactions in obese clients.' },
+    { kind: 'typein', id: 'sp-t7', tags: ['obesity'], prompt: 'Minimum weekly energy expenditure goal (combined activity + exercise) commonly cited for obese clients?', accept: ['1200 kcal', '1,200 kcal', '1200'], hints: ['A 4-digit number.', '_,___ kcal'], explanation: 'A commonly cited minimum weekly target is ~1,200 kcal.' },
+    { kind: 'typein', id: 'sp-t8', tags: ['diabetes'], prompt: 'In type 1 diabetes, what does the pancreas fail to produce enough of?', accept: ['insulin'], hints: ['Regulates blood sugar.', 'I______'], explanation: 'Type 1 diabetes results from insufficient insulin production.' },
+    { kind: 'typein', id: 'sp-t9', tags: ['youth'], prompt: 'How many sets per SAQ drill are recommended for young athletes?', accept: ['1-4', '1 to 4 sets', '1-4 sets'], hints: ['A small range.', '_-_ sets'], explanation: 'Young athletes: 1–4 sets per SAQ drill.' },
+    {
+      kind: 'mcq', id: 'sp-m1', tags: ['diabetes'], source: 'original',
+      prompt: 'Which individual is suffering from an acute (not chronic) disease?',
+      options: ['Roger, who has type 2 diabetes', 'Jorge, who is sick with the flu', 'Tricia, who has type 1 diabetes', 'Perry, who has a congenital heart condition'],
+      answer: 1,
+      explanation: 'The flu is a short-term, acute illness, unlike the other three chronic, ongoing conditions.',
+      whyWrong: ['Type 2 diabetes is chronic, not acute.', '', 'Type 1 diabetes is chronic, not acute.', 'A congenital heart condition is chronic/lifelong, not acute.'],
+    },
+    {
+      kind: 'mcq', id: 'sp-m2', tags: ['older-adults'], source: 'original',
+      prompt: 'Which activity is most effective for combating age-related loss of muscle mass, power, and strength?',
+      options: ['Walking', 'General cardio', 'Resistance training', 'Aerobics'],
+      answer: 2,
+      explanation: 'Resistance training is the specific intervention shown to counter sarcopenia.',
+      whyWrong: ['Walking is low-intensity cardio, not the primary countermeasure for strength/power loss.', 'General cardio does not specifically target muscle mass and strength preservation.', '', 'Aerobics primarily targets cardiorespiratory fitness, not muscle/strength preservation.'],
+    },
+  ],
+}
