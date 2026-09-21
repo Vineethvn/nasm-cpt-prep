@@ -86,7 +86,7 @@ Full topic bullets for each domain are in the original project brief (kept in co
 3. **Every MCQ explains why each wrong option is wrong** (`whyWrong` array, parallel to `options`).
 4. **No invented facts.** Anything uncertain is listed in `VERIFY.md` rather than guessed.
 5. **Original wording for all original questions** — never copy from paid NASM materials. The 100 sample-paper questions are the user's own study material and are used as-is; the surrounding explanations/whyWrong text is original.
-6. Target volume: ≥ 25 practice items per module, ≥ 500 items total, plus the 100 sample-paper questions (already added). Current modules average well under 25 items each (~15–20 total across lessons/items per module is typical); topping every module up to ≥25 items is tracked as remaining M2 polish work, not blocking M3.
+6. Target volume: ≥ 25 practice items per module, ≥ 500 items total, plus the 100 sample-paper questions. **Met:** all 19 modules now carry ≥ 25 items (519 module items + 100 sample-paper = 619 total). Item mix deliberately emphasizes the question patterns NASM actually uses — scenario-wrapped application questions, near-identical distractor discrimination, and exact-number recall — not just definition lookups.
 
 ---
 
@@ -110,7 +110,9 @@ Done — see `ANSWER-KEY-AUDIT.md`. All 100 questions had complete stems in the 
 
 **M1 (shipped):** project setup, PWA, storage + export/import, dashboard with countdown, module page (Learn / Type it / Quiz), answer-matching + hint ladder, spaced repetition, and 5 written modules (OPT Model & Periodization, Acute Variables, Muscle Imbalances, VT & Zone Lab, Stages of Change & Communication) plus all 6 special trainers including Numbers Vault. `npm run build` passes with zero TypeScript errors; `npm run validate-content` passes.
 
-**M2 (shipped):** Sample Paper module (100 questions with explanations) + answer-key audit. All 19 modules from the syllabus map (§5) across all 6 domains, each with lessons (plain + NASM wording) and practice items — item counts per module currently range ~5–24, short of the ≥25/module target in some modules; see the note under §6 rule 6 below for the plan to top these up. Route-based code-splitting added (`React.lazy`) to keep the bundle lean as content grew.
+**M2 (shipped):** Sample Paper module (100 questions with explanations) + answer-key audit. All 19 modules from the syllabus map (§5) across all 6 domains, each with lessons (plain + NASM wording) and **≥ 25 practice items** (619 items total across the app). Route-based code-splitting added (`React.lazy`) to keep the bundle lean as content grew.
+
+Per-domain item coverage: D1 123, D2 84, D3 103, D4 108, D5 51, D6 50 (plus 100 sample-paper questions spanning all domains).
 
 **M3 (core features shipped):** 120-question timed mock exam, My Questions, and search — **done**. Still open: onboarding tour, further animation polish, and a real Lighthouse ≥ 90 audit (not yet run in this environment — no Chrome/Lighthouse CLI available; recommend running `npx lighthouse` against the deployed Vercel URL, or Chrome DevTools' Lighthouse panel, before relying on the ≥90 mobile score).
 

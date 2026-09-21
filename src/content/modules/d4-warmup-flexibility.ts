@@ -173,5 +173,7 @@ export const warmupFlexibility: Module = {
       ],
       explanation: 'All three begin with SMR; the stretching technique escalates from static to active-isolated to dynamic as the client progresses.',
     },
+    { kind: 'typein', id: 'wf-t15', tags: ['workout-order'], prompt: 'What is the LAST component of a standard OPT session?', accept: ['cool-down', 'cool down', 'cooldown'], hints: ['Bringing it back down.', 'C___-____'], explanation: 'The cool-down closes the session after resistance training.' },
+    { kind: 'typein', id: 'wf-t16', tags: ['flexibility'], prompt: 'Which OPT phases use functional (dynamic) flexibility?', accept: ['4-5', 'phases 4-5', '4 and 5'], hints: ['The top two phases.', 'Phases _-_'], explanation: 'Functional flexibility (SMR + dynamic stretching) is used in Phases 4–5.' },
   ],
 }

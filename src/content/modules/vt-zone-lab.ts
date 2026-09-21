@@ -203,5 +203,7 @@ export const vtZoneLab: Module = {
       ],
       explanation: 'Stages add zones progressively: Zone 1 only, then Zone 1–2 intervals, then all three zones for advanced clients.',
     },
+    { kind: 'typein', id: 'vt-t15', tags: ['cardio', 'zones'], prompt: 'Which zone sits BELOW VT1?', accept: ['zone 1', '1'], hints: ['The easiest zone.', 'Zone _'], explanation: 'Zone 1 is below VT1 — comfortable conversation is still possible.' },
+    { kind: 'typein', id: 'vt-t16', tags: ['cardio', 'zones'], prompt: 'Which zone sits ABOVE VT2?', accept: ['zone 3', '3'], hints: ['The hardest zone.', 'Zone _'], explanation: 'Zone 3 is above VT2 — talking is not possible at this intensity.' },
   ],
 }

@@ -161,5 +161,9 @@ export const resistanceTechnique: Module = {
       ],
       explanation: 'Exercise selection should match the phase intent: instability for Phase 1, heavy loadable compounds for Phase 4, explosive movements for Phase 5.',
     },
+    { kind: 'typein', id: 'rt-t13', tags: ['systems'], prompt: 'Which training system performs one set of an exercise with minimal rest before moving to a different exercise, cycling through many?', accept: ['circuit training', 'circuit'], hints: ['Move station to station.', 'C______ training'], explanation: 'Circuit training moves through multiple exercises with minimal rest between them.' },
+    { kind: 'typein', id: 'rt-t14', tags: ['systems'], prompt: 'Which training system performs only one set per exercise?', accept: ['single-set', 'single set system', 'single-set system'], hints: ['The simplest system.', 'S_____-___ system'], explanation: 'The single-set system performs one set per exercise.' },
+    { kind: 'typein', id: 'rt-t15', tags: ['systems'], prompt: 'Which training system organizes training by body region across different days?', accept: ['split routine', 'split'], hints: ['Divide the body up.', 'S____ routine'], explanation: 'A split routine divides training across days by body region or movement pattern.' },
+    { kind: 'typein', id: 'rt-t16', tags: ['technique'], prompt: 'Which muscle action involves the muscle lengthening under load?', accept: ['eccentric'], hints: ['The lowering phase.', 'E_________'], explanation: 'An eccentric action is the muscle lengthening while producing force.' },
   ],
 }

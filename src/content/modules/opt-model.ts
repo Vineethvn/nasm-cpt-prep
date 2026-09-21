@@ -229,5 +229,7 @@ Every phase changes the same 5 knobs: how many reps, how many sets, how heavy, h
       ],
       explanation: 'Each phase targets a distinct adaptation, progressing from stability through size and strength to speed of force production.',
     },
+    { kind: 'typein', id: 'opt-t14', tags: ['opt', 'periodization'], prompt: 'Which periodization term describes a training block of weeks to months?', accept: ['mesocycle'], hints: ['Between macro and micro.', 'M________'], explanation: 'A mesocycle is a training block of weeks to months.' },
+    { kind: 'typein', id: 'opt-t15', tags: ['opt', 'principles'], prompt: 'Which training principle states that programs must be varied to avoid plateaus and overtraining?', accept: ['variation', 'principle of variation'], hints: ['Keep changing it.', 'V________'], explanation: 'The principle of variation calls for planned changes in programming to avoid plateaus and overtraining.' },
   ],
 }

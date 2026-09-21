@@ -138,5 +138,10 @@ export const modalities: Module = {
       ],
       explanation: 'Thicker equals heavier, which suits short high-intensity work; thinner suits longer endurance sets.',
     },
+    { kind: 'typein', id: 'mod-t10', tags: ['modalities'], prompt: 'Which modality provides horizontal loading with essentially no eccentric phase on the push?', accept: ['sled', 'sled push'], hints: ['You push it along the ground.', 'S___'], explanation: 'A sled push is pure concentric horizontal force production.' },
+    { kind: 'typein', id: 'mod-t11', tags: ['modalities'], prompt: 'Which modality uses a half-dome unstable surface for balance training?', accept: ['bosu', 'bosu ball'], hints: ['Four letters.', 'B___'], explanation: 'A BOSU trainer provides an unstable surface for balance and stabilization work.' },
+    { kind: 'typein', id: 'mod-t12', tags: ['modalities'], prompt: 'Which modality is a cast-iron weight with a handle, commonly used for swings?', accept: ['kettlebell'], hints: ['Has a handle on top.', 'K_________'], explanation: 'Kettlebells are used for swings, cleans, and other ballistic movements requiring eccentric control.' },
+    { kind: 'typein', id: 'mod-t13', tags: ['modalities'], prompt: 'Which tool is used for self-myofascial release?', accept: ['foam roller', 'roller'], hints: ['You roll on it.', 'F___ R_____'], explanation: 'A foam roller is the standard SMR tool.' },
+    { kind: 'typein', id: 'mod-t14', tags: ['modalities'], prompt: 'Which modality trains footwork and agility patterns without external load?', accept: ['speed ladder', 'agility ladder', 'ladder'], hints: ['Laid flat on the floor.', 'S____ L_____'], explanation: 'Speed/agility ladders train footwork and quickness patterns.' },
   ],
 }
