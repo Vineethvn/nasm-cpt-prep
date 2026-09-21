@@ -1,0 +1,160 @@
+import type { Module } from '../../types/content'
+
+export const optModel: Module = {
+  id: 'd3-opt-model',
+  domainId: 'd3',
+  title: 'OPT Model & Periodization',
+  estMinutes: 25,
+  lessons: [
+    {
+      id: 'opt-l1',
+      title: 'What the OPT Model actually is',
+      plain: `Think of the OPT Model as a staircase for a client's fitness, not a ladder you climb once and leave behind. There are **5 steps (phases)**, grouped into **3 buildings**: Stabilization, Strength, and Power. A total beginner starts on step 1 no matter how "fit" they look, because step 1 is about teaching the body to control itself before it tries to move heavy or fast.
+
+Every phase changes the same 5 knobs: how many reps, how many sets, how heavy, how fast/slow each rep is (tempo), and how long you rest. Turn those knobs together and you get a different training effect — endurance, size, max strength, or power.`,
+      nasm: `The Optimum Performance Training (OPT™) model is a systematic, periodized training strategy comprising three building blocks — Stabilization, Strength, and Power — divided into five phases of training. Each phase manipulates the acute variables (repetitions, sets, intensity, tempo, rest) to produce a specific physiological adaptation, progressing from stabilization endurance through strength endurance, muscular development, maximal strength, to power.`,
+      memoryHook: `"Stabilize, then get Strong, then get Powerful." Phases 1→5 = Stabilization Endurance, Strength Endurance, Muscular Development, Maximal Strength, Power.`,
+      mustMemorise: [
+        'OPT model has 3 building blocks: Stabilization, Strength, Power',
+        'OPT model has 5 phases total',
+        'Phase 1 = Stabilization Endurance',
+        'Phase 2 = Strength Endurance',
+        'Phase 3 = Muscular Development (hypertrophy)',
+        'Phase 4 = Maximal Strength',
+        'Phase 5 = Power',
+      ],
+      table: {
+        headers: ['Building block', 'Phase(s)', 'Primary goal'],
+        rows: [
+          ['Stabilization', 'Phase 1', 'Muscular endurance + joint stability'],
+          ['Strength', 'Phases 2–4', 'Strength endurance → hypertrophy → maximal strength'],
+          ['Power', 'Phase 5', 'Force production at speed'],
+        ],
+      },
+    },
+    {
+      id: 'opt-l2',
+      title: 'Periodization: planning training over time',
+      plain: `Periodization is just "planning ahead" so training doesn't stay random forever. A **macrocycle** is the big picture (often a year). Cut that into **mesocycles** (chunks of weeks/months, like a training block for a season). Cut those into **microcycles** (usually a single week). The point is to plan variety on purpose instead of doing the same workout until it stops working.`,
+      nasm: `Periodization is the division of a training program into smaller, progressive stages. A macrocycle is typically one year, mesocycles are smaller training blocks within the macrocycle (weeks to months), and microcycles are the smallest unit, typically one week. Periodization applies the General Adaptation Syndrome (GAS) and the principle of variation to avoid overtraining and plateaus.`,
+      memoryHook: `Macro → Meso → Micro, biggest to smallest, like a calendar: year → block → week.`,
+      mustMemorise: [
+        'Macrocycle = typically 1 year',
+        'Mesocycle = weeks to months (a training block)',
+        'Microcycle = typically 1 week',
+        'GAS = General Adaptation Syndrome: alarm → resistance (adaptation) → exhaustion (if overtrained/under-recovered)',
+      ],
+    },
+    {
+      id: 'opt-l3',
+      title: 'SAID principle and overload',
+      plain: `SAID means the body adapts *specifically* to the demand you place on it. Train slow and steady → you get better at slow and steady. Train heavy and low-rep → you get stronger, not more "toned." Overload just means you have to keep asking the body to do a little more than it's used to, or it has no reason to change.`,
+      nasm: `The SAID principle (Specific Adaptation to Imposed Demands) states the body adapts to the specific demands placed upon it. The principle of overload states that a program must continually place increased demands on the body for continual improvements to occur.`,
+      mustMemorise: ['SAID = Specific Adaptation to Imposed Demands'],
+    },
+  ],
+  items: [
+    {
+      kind: 'typein', id: 'opt-t1', tags: ['opt', 'phases'],
+      prompt: 'What are the 3 building blocks of the OPT model, in order?',
+      accept: ['stabilization strength power', 'stabilization, strength, power'],
+      hints: ['Each block is a group of phases.', 'S___________ , S________, P_____'],
+      explanation: 'The OPT model progresses through Stabilization → Strength → Power.',
+    },
+    {
+      kind: 'typein', id: 'opt-t2', tags: ['opt', 'phases'],
+      prompt: 'Name Phase 1 of the OPT model.',
+      accept: ['stabilization endurance'],
+      hints: ['It focuses on muscular endurance and joint stability.', 'S___________ E________'],
+      explanation: 'Phase 1 is Stabilization Endurance — the foundation phase for every client.',
+    },
+    {
+      kind: 'typein', id: 'opt-t3', tags: ['opt', 'phases'],
+      prompt: 'Name Phase 3 of the OPT model.',
+      accept: ['muscular development', 'hypertrophy'],
+      hints: ['This is the classic "bodybuilding" phase.', 'M________ D___________'],
+      explanation: 'Phase 3 is Muscular Development, also called hypertrophy training.',
+    },
+    {
+      kind: 'typein', id: 'opt-t4', tags: ['opt', 'phases'],
+      prompt: 'Name Phase 4 of the OPT model.',
+      accept: ['maximal strength'],
+      hints: ['Very heavy loads, very low reps.', 'M______ S________'],
+      explanation: 'Phase 4 is Maximal Strength — the heaviest, lowest-rep phase.',
+    },
+    {
+      kind: 'typein', id: 'opt-t5', tags: ['opt', 'periodization'],
+      prompt: 'What is the smallest unit of periodization, typically covering one week?',
+      accept: ['microcycle'],
+      hints: ['It is nested inside a mesocycle.', 'M_________'],
+      explanation: 'A microcycle is the smallest training block, typically one week.',
+    },
+    {
+      kind: 'typein', id: 'opt-t6', tags: ['opt', 'periodization'],
+      prompt: 'What term describes a macrocycle, typically covering one year of training?',
+      accept: ['macrocycle'],
+      hints: ['It is the biggest planning unit.', 'M_________'],
+      explanation: 'A macrocycle is the largest periodization unit, typically one year.',
+    },
+    {
+      kind: 'typein', id: 'opt-t7', tags: ['opt', 'said'],
+      prompt: 'Give the full name of the SAID principle.',
+      accept: ['specific adaptation to imposed demands'],
+      hints: ['Each letter stands for a word describing how the body adapts.', 'S______ A________ to I______ D______'],
+      explanation: 'SAID = Specific Adaptation to Imposed Demands.',
+    },
+    {
+      kind: 'mcq', id: 'opt-m1', tags: ['opt', 'phases'], source: 'original',
+      prompt: 'A brand-new client with no training history and mild low-back discomfort should begin in which OPT phase?',
+      options: ['Phase 1 – Stabilization Endurance', 'Phase 3 – Muscular Development', 'Phase 4 – Maximal Strength', 'Phase 5 – Power'],
+      answer: 0,
+      explanation: 'All clients, regardless of goal, begin in Phase 1 to build stabilization and joint control first, especially with existing discomfort.',
+      whyWrong: [
+        '',
+        'Phase 3 assumes the client already has stabilization and strength endurance in place.',
+        'Phase 4 uses very heavy loads that require a stable, prepared kinetic chain first.',
+        'Phase 5 (Power) requires a strength base and excellent stabilization to be safe.',
+      ],
+    },
+    {
+      kind: 'mcq', id: 'opt-m2', tags: ['opt', 'periodization'], source: 'original',
+      prompt: 'Which best describes a mesocycle?',
+      options: [
+        'A single training session',
+        'A smaller training block of weeks to months within the macrocycle',
+        'The entire one-year training plan',
+        'A single set of an exercise',
+      ],
+      answer: 1,
+      explanation: 'A mesocycle is a training block of weeks to months that sits between the macrocycle (year) and microcycle (week).',
+      whyWrong: [
+        'That is closer to a training session, not a mesocycle.',
+        '',
+        'That describes a macrocycle, not a mesocycle.',
+        'That is far smaller than a mesocycle.',
+      ],
+    },
+    {
+      kind: 'order', id: 'opt-o1', tags: ['opt', 'phases'],
+      prompt: 'Put the 5 OPT phases in the correct progressive order.',
+      correctOrder: [
+        'Stabilization Endurance',
+        'Strength Endurance',
+        'Muscular Development',
+        'Maximal Strength',
+        'Power',
+      ],
+      explanation: 'The OPT model always progresses Stabilization Endurance → Strength Endurance → Muscular Development → Maximal Strength → Power.',
+    },
+    {
+      kind: 'match', id: 'opt-match1', tags: ['opt', 'periodization'],
+      prompt: 'Match each periodization term to its typical timeframe.',
+      pairs: [
+        ['Macrocycle', 'Typically 1 year'],
+        ['Mesocycle', 'Weeks to months'],
+        ['Microcycle', 'Typically 1 week'],
+      ],
+      explanation: 'Macro (year) > Meso (weeks-months) > Micro (week) — biggest to smallest planning unit.',
+    },
+  ],
+}
