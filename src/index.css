@@ -21,6 +21,23 @@
   color-scheme: light dark;
 }
 
+/* Every component reads colors through these custom properties (e.g. bg-(--color-surface)),
+   so dark mode must redefine the properties themselves, not just body's background/text —
+   otherwise cards stay hardcoded light while inherited text turns light-on-light/unreadable. */
+.dark {
+  --color-bg: #0b1220;
+  --color-surface: #16213a;
+  --color-border: #2c3a54;
+  --color-text: #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-accent: #60a5fa;
+  --color-accent-fg: #0b1220;
+  --color-success: #4ade80;
+  --color-danger: #f87171;
+  --color-warn: #fbbf24;
+  color-scheme: dark;
+}
+
 html,
 body,
 #root {
@@ -31,11 +48,6 @@ body {
   margin: 0;
   background: var(--color-bg);
   color: var(--color-text);
-}
-
-.dark body {
-  background: #0b1220;
-  color: #e2e8f0;
 }
 
 * {
