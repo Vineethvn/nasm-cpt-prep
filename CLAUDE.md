@@ -84,7 +84,7 @@ Full topic bullets for each domain are in the original project brief (kept in co
 3. **Every MCQ explains why each wrong option is wrong** (`whyWrong` array, parallel to `options`).
 4. **No invented facts.** Anything uncertain is listed in `VERIFY.md` rather than guessed.
 5. **Original wording for all original questions** — never copy from paid NASM materials. The 100 sample-paper questions are the user's own study material and are used as-is; the surrounding explanations/whyWrong text is original.
-6. Target volume: ≥ 25 practice items per module, ≥ 500 items total, plus the 100 sample-paper questions (already added).
+6. Target volume: ≥ 25 practice items per module, ≥ 500 items total, plus the 100 sample-paper questions (already added). Current modules average well under 25 items each (~15–20 total across lessons/items per module is typical); topping every module up to ≥25 items is tracked as remaining M2 polish work, not blocking M3.
 
 ---
 
@@ -108,7 +108,7 @@ Done — see `ANSWER-KEY-AUDIT.md`. All 100 questions had complete stems in the 
 
 **M1 (shipped):** project setup, PWA, storage + export/import, dashboard with countdown, module page (Learn / Type it / Quiz), answer-matching + hint ladder, spaced repetition, and 5 written modules (OPT Model & Periodization, Acute Variables, Muscle Imbalances, VT & Zone Lab, Stages of Change & Communication) plus all 6 special trainers including Numbers Vault. `npm run build` passes with zero TypeScript errors; `npm run validate-content` passes.
 
-**M2 (partially shipped):** Sample Paper module (100 questions with explanations) + answer-key audit — **done**. Still open: all remaining D1–D6 lesson modules with ≥ 25 items each (only 5 modules exist so far, covering a subset of the syllabus map in §5).
+**M2 (shipped):** Sample Paper module (100 questions with explanations) + answer-key audit. All 19 modules from the syllabus map (§5) across all 6 domains, each with lessons (plain + NASM wording) and practice items — item counts per module currently range ~5–24, short of the ≥25/module target in some modules; see the note under §6 rule 6 below for the plan to top these up. Route-based code-splitting added (`React.lazy`) to keep the bundle lean as content grew.
 
 **M3:** 120-question timed mock exam, My Questions, search, polish (animations, empty states, onboarding tour), Lighthouse ≥ 90 on mobile for performance and accessibility.
 

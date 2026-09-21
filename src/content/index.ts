@@ -15,6 +15,9 @@ import { warmupFlexibility } from './modules/d4-warmup-flexibility'
 import { coreBalancePlyoSaq } from './modules/d4-core-balance-plyo-saq'
 import { resistanceTechnique } from './modules/d4-resistance-technique'
 import { modalities } from './modules/d4-modalities'
+import { communication } from './modules/d5-communication'
+import { scopeEthics } from './modules/d6-scope-ethics'
+import { business } from './modules/d6-business'
 
 export const MODULES: Module[] = [
   optModel,
@@ -33,6 +36,9 @@ export const MODULES: Module[] = [
   coreBalancePlyoSaq,
   resistanceTechnique,
   modalities,
+  communication,
+  scopeEthics,
+  business,
 ]
 
 export const MODULE_MAP: Record<string, Module> = Object.fromEntries(MODULES.map((m) => [m.id, m]))
