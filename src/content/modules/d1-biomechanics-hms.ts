@@ -1,0 +1,71 @@
+import type { Module } from '../../types/content'
+
+export const biomechanicsHms: Module = {
+  id: 'd1-biomechanics-hms',
+  domainId: 'd1',
+  title: 'Biomechanics & Human Movement Science',
+  estMinutes: 35,
+  lessons: [
+    {
+      id: 'bhm-l1',
+      title: 'Planes, axes, and levers',
+      plain: `Movement happens in 3 imaginary planes. **Sagittal** splits you left/right (movements: flexion/extension — like a bicep curl or squat). **Frontal** splits you front/back (movements: abduction/adduction — like a side lateral raise). **Transverse** splits you top/bottom (movements: rotation — like a torso twist). Levers in the body work like simple machines: **1st class** has the fulcrum in the middle (like a seesaw — think neck extension). **2nd class** has the load in the middle (rare in the body — think a wheelbarrow, or calf raise). **3rd class** has the effort in the middle — this is by far the most common lever type in the human body (think a bicep curl).`,
+      nasm: `The sagittal plane divides the body into left and right halves and is associated with flexion/extension movements. The frontal plane divides the body into anterior and posterior halves and is associated with abduction/adduction movements. The transverse plane divides the body into superior and inferior halves and is associated with rotational movements. A first-class lever has the fulcrum positioned between the effort and the resistance (e.g., a seesaw). A second-class lever has the resistance positioned between the fulcrum and the effort (e.g., a wheelbarrow). A third-class lever, the most common lever system in the human body, has the effort positioned between the fulcrum and the resistance (e.g., the elbow during a biceps curl).`,
+      memoryHook: `"Sagittal = Saggital arrow flies front-to-back" (splits left/right). Most human levers are 3rd class — effort in the middle, like the elbow.`,
+      mustMemorise: [
+        'Sagittal plane = flexion/extension, splits left/right',
+        'Frontal plane = abduction/adduction, splits front/back',
+        'Transverse plane = rotation, splits top/bottom',
+        '1st class lever = fulcrum in the middle (seesaw)',
+        '2nd class lever = resistance in the middle (wheelbarrow)',
+        '3rd class lever = effort in the middle (most common in the body, e.g. elbow)',
+      ],
+    },
+    {
+      id: 'bhm-l2',
+      title: 'Ground reaction forces and rate of force production',
+      plain: `Newton's third law shows up every time you jump: push down on the ground, and the ground pushes back up on you with equal force — that push-back is a **ground reaction force**, and it's what actually propels you upward. **Rate of force production** is how quickly you can generate force — critical for anything explosive like a jump or sprint start, where you don't have much time to build up force before you need it.`,
+      nasm: `Ground reaction forces are the forces exerted by the ground back on the body in response to forces the body exerts on the ground, per Newton's third law of motion. Rate of force production refers to how quickly the neuromuscular system can generate force, which is a key determinant of performance in explosive, time-limited movements such as jumping and sprinting.`,
+      mustMemorise: ['Ground reaction force = the force the ground exerts back on the body upon contact (Newton\'s third law)'],
+    },
+    {
+      id: 'bhm-l3',
+      title: 'Human movement dysfunctions',
+      plain: `A handful of terms describe how movement goes wrong over time. **Altered reciprocal inhibition**: a chronically tight muscle "tells" its opposite muscle to relax/weaken. **Synergistic dominance**: when a prime mover is too weak to do its job, a helper muscle takes over — which reinforces bad movement patterns. **Arthrokinetic dysfunction**: altered movement at the joint itself (not just the muscles) causing improper joint mechanics. **Relative flexibility**: the body finds the path of least resistance — if one area is too tight to move properly, a neighboring area (that shouldn't be moving that much) compensates and takes on extra motion. **Davis's law**: soft tissue (like scar tissue or fascia) lays down and remodels along the lines of stress placed on it — similar in spirit to Wolff's law but for soft tissue instead of bone. The **cumulative injury cycle**: an injury leads to inflammation → muscle spasm → adhesions (scar tissue) → altered neuromuscular control → muscle imbalance → which then causes more injury, and the cycle repeats.`,
+      nasm: `Altered reciprocal inhibition occurs when a tight/overactive muscle decreases neural drive to its functional antagonist. Synergistic dominance occurs when a synergist compensates for a weak or inhibited prime mover to maintain force output. Arthrokinetic dysfunction refers to altered joint motion (arthrokinematics) that leads to abnormal joint mechanics and movement compensations. Relative flexibility describes the body's tendency to seek the path of least resistance during movement, allowing more mobile segments to compensate for adjacent segments with limited mobility. Davis's law states that soft tissue models along the lines of stress placed upon it. The cumulative injury cycle describes a self-perpetuating cycle of tissue trauma, inflammation, muscle spasm, adhesion formation, altered neuromuscular control, and muscle imbalance.`,
+      mustMemorise: [
+        'Altered reciprocal inhibition: a tight muscle decreases neural drive to its opposite',
+        'Synergistic dominance: a helper muscle compensates for a weak prime mover',
+        'Relative flexibility: the body compensates by moving through the path of least resistance',
+        'Davis\'s law: soft tissue remodels along the lines of stress placed on it',
+        'Cumulative injury cycle: trauma → inflammation → spasm → adhesion → altered neuromuscular control → imbalance → repeat',
+      ],
+    },
+  ],
+  items: [
+    { kind: 'typein', id: 'bhm-t1', tags: ['planes'], prompt: 'Which plane of motion divides the body into left and right halves, and includes flexion/extension?', accept: ['sagittal', 'sagittal plane'], hints: ['Think of a bicep curl.', 'S________ plane'], explanation: 'The sagittal plane divides left/right and governs flexion/extension.' },
+    { kind: 'typein', id: 'bhm-t2', tags: ['planes'], prompt: 'Which plane of motion divides the body into front and back, and includes abduction/adduction?', accept: ['frontal', 'frontal plane'], hints: ['Think of a lateral raise.', 'F______ plane'], explanation: 'The frontal plane divides front/back and governs abduction/adduction.' },
+    { kind: 'typein', id: 'bhm-t3', tags: ['planes'], prompt: 'Which plane of motion divides the body top and bottom, and includes rotation?', accept: ['transverse', 'transverse plane'], hints: ['Think of a torso twist.', 'T________ plane'], explanation: 'The transverse plane divides top/bottom and governs rotational movement.' },
+    { kind: 'typein', id: 'bhm-t4', tags: ['levers'], prompt: 'Which lever class has the fulcrum positioned in the middle, like a seesaw?', accept: ['first class', '1st class'], hints: ['The first of three.', 'F____ class'], explanation: 'A first-class lever has the fulcrum between the effort and resistance.' },
+    { kind: 'typein', id: 'bhm-t5', tags: ['levers'], prompt: 'Which lever class is the most common in the human body, with the effort positioned in the middle?', accept: ['third class', '3rd class'], hints: ['Think of a bicep curl.', 'T____ class'], explanation: 'Third-class levers (effort in the middle) are the most common in the human body.' },
+    { kind: 'typein', id: 'bhm-t6', tags: ['movement-science'], prompt: 'What term describes a tight muscle decreasing neural drive to its opposite (antagonist) muscle?', accept: ['altered reciprocal inhibition'], hints: ['A variation of "reciprocal inhibition."', 'A_______ R__________ I________'], explanation: 'Altered reciprocal inhibition: a tight muscle suppresses activation of its antagonist.' },
+    { kind: 'typein', id: 'bhm-t7', tags: ['movement-science'], prompt: 'What term describes a helper muscle taking over for a weak prime mover?', accept: ['synergistic dominance'], hints: ['Involves a "synergist."', 'S__________ D________'], explanation: 'Synergistic dominance: a synergist compensates for a weak prime mover.' },
+    { kind: 'typein', id: 'bhm-t8', tags: ['movement-science'], prompt: 'What term describes the body compensating by moving through the "path of least resistance" when one area is too tight?', accept: ['relative flexibility'], hints: ['Involves "flexibility."', 'R_______ F___________'], explanation: 'Relative flexibility: the body seeks the path of least resistance, letting mobile segments compensate for stiff ones.' },
+    { kind: 'typein', id: 'bhm-t9', tags: ['movement-science'], prompt: 'What law states that soft tissue remodels along the lines of stress placed upon it (similar to Wolff\'s law but for soft tissue)?', accept: ['davis law', 'davis\'s law'], hints: ['Named after a person.', 'D_____\'s Law'], explanation: 'Davis\'s law: soft tissue remodels along the lines of stress placed on it.' },
+    { kind: 'typein', id: 'bhm-t10', tags: ['movement-science'], prompt: 'What term describes forces the ground exerts back on the body upon contact (e.g. landing a jump)?', accept: ['ground reaction forces', 'ground reaction force'], hints: ['Newton\'s third law in action.', 'G_____ R________ F_____'], explanation: 'Ground reaction forces are the forces the ground exerts back on the body.' },
+    {
+      kind: 'mcq', id: 'bhm-m1', tags: ['movement-science'], source: 'original',
+      prompt: 'A client\'s ankle mobility is severely limited, so their lower back excessively rounds during a squat to compensate. Which concept best explains this?',
+      options: ['Davis\'s law', 'Relative flexibility', 'Altered reciprocal inhibition', 'Synergistic dominance'],
+      answer: 1,
+      explanation: 'Relative flexibility: a stiff region (the ankle) forces a neighboring, more mobile region (the lumbar spine) to move excessively to compensate.',
+      whyWrong: ['Davis\'s law describes soft-tissue remodeling over time, not an in-the-moment compensation pattern.', '', 'Altered reciprocal inhibition describes a specific neural muscle-pair relationship, not this general compensation concept.', 'Synergistic dominance describes a helper muscle taking over for a prime mover, not a joint-to-joint compensation.'],
+    },
+    {
+      kind: 'order', id: 'bhm-o1', tags: ['movement-science'],
+      prompt: 'Put the stages of the cumulative injury cycle in order.',
+      correctOrder: ['Tissue trauma', 'Inflammation', 'Muscle spasm', 'Adhesions', 'Altered neuromuscular control', 'Muscle imbalance'],
+      explanation: 'The cumulative injury cycle: trauma → inflammation → spasm → adhesions → altered neuromuscular control → muscle imbalance → (repeats).',
+    },
+  ],
+}

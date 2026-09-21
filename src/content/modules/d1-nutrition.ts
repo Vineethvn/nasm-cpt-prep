@@ -1,0 +1,82 @@
+import type { Module } from '../../types/content'
+
+export const nutrition: Module = {
+  id: 'd1-nutrition',
+  domainId: 'd1',
+  title: 'Nutrition',
+  estMinutes: 35,
+  lessons: [
+    {
+      id: 'nut-l1',
+      title: 'Macronutrients: the calorie math',
+      plain: `Every gram of carb or protein you eat gives you 4 calories. Every gram of fat gives you 9 calories — more than double. Alcohol gives 7 calories per gram (and has no other nutritional benefit). NASM gives target ranges for each: carbs 45-65% of total calories, protein 10-35%, fat 20-35% — these are called **AMDRs** (Acceptable Macronutrient Distribution Ranges). For people who exercise, sports-nutrition guidelines (ISSN) recommend more protein than the general AMDR — 1.4 to 2.0 grams per kilogram of bodyweight per day.`,
+      nasm: `Carbohydrates and protein each provide 4 kcal/g, fat provides 9 kcal/g, and alcohol provides 7 kcal/g. The Acceptable Macronutrient Distribution Ranges (AMDRs) are 45–65% of total calories from carbohydrate, 10–35% from protein, and 20–35% from fat. The International Society of Sports Nutrition (ISSN) recommends 1.4–2.0 g/kg of body weight per day of protein for most exercising individuals, exceeding the general AMDR for sedentary populations.`,
+      memoryHook: `"4-4-9-7": carbs 4, protein 4, fat 9, alcohol 7.`,
+      mustMemorise: [
+        'Carbohydrate and protein = 4 kcal/g',
+        'Fat = 9 kcal/g',
+        'Alcohol = 7 kcal/g',
+        'AMDR: carb 45–65%, protein 10–35%, fat 20–35%',
+        'ISSN protein recommendation for exercisers: 1.4–2.0 g/kg body weight',
+      ],
+    },
+    {
+      id: 'nut-l2',
+      title: 'Micronutrients, hydration, and energy balance',
+      plain: `Vitamins split into two groups: **fat-soluble** (A, D, E, K — stored in body fat, so it's possible to overdose on these) and **water-soluble** (the 8 **B vitamins** plus vitamin C — these aren't stored much, so you need a steady supply). One pound of body fat holds roughly 3,500 kcal, which is why weekly targets of a few hundred to ~1,200 kcal deficit per week are used for gradual, sustainable fat loss (obese clients specifically are commonly given a minimum weekly energy-expenditure goal of around 1,200 kcal from combined activity/exercise).`,
+      nasm: `Fat-soluble vitamins (A, D, E, K) are stored in adipose tissue and can accumulate to toxic levels with excessive intake. Water-soluble vitamins, including the 8 B vitamins and vitamin C, are not significantly stored and require regular dietary intake. Approximately 3,500 kcal is equivalent to roughly 1 pound of stored body fat, informing common caloric-deficit targets for gradual fat loss.`,
+      mustMemorise: [
+        'Fat-soluble vitamins: A, D, E, K (can build up to toxic levels)',
+        'Water-soluble vitamins: 8 B vitamins + vitamin C',
+        '~3,500 kcal ≈ 1 lb of stored body fat',
+      ],
+    },
+    {
+      id: 'nut-l3',
+      title: 'Food labels vs. supplement labels',
+      plain: `Food labels are tightly regulated — exact amounts of nutrients must be disclosed. Supplement labels have looser rules: a supplement can list an ingredient as being present in a "proprietary blend" without disclosing the exact amount of each ingredient inside that blend. This is a key difference trainers should know when discussing supplements with clients, since it means label transparency isn't guaranteed the same way it is for food.`,
+      nasm: `Food labels are required by regulation to disclose specific nutrient amounts. Supplement labels are subject to less stringent regulation and may disclose only that an ingredient is present (e.g. within a "proprietary blend") without specifying its exact amount, creating a key transparency gap compared to food labeling.`,
+      mustMemorise: ['Supplement labels may list an ingredient as present without disclosing the specific amount (unlike food labels)'],
+    },
+    {
+      id: 'nut-l4',
+      title: 'Scope of practice: what trainers can (and can\'t) say about nutrition and drugs',
+      plain: `Trainers can give general, safe nutrition guidance (like "increase meal frequency and portion size" for a bulking client). What's outside scope: prescribing specific diet plans, recommending supplements/medications, or endorsing performance-enhancing drugs. If a client insists on using a steroid or harmful substance, the correct response is to say no and refer them to a licensed medical professional — not to give advice either way.`,
+      nasm: `Certified Personal Trainers may provide general nutritional guidance but must refer clients to a Registered Dietitian or physician for individualized meal plans, supplement recommendations, or medical nutrition therapy. Regarding performance-enhancing drugs, trainers must decline to endorse or advise on their use and refer the client to a licensed medical professional.`,
+      mustMemorise: ['If a client insists on using a steroid, tell them no and refer to a licensed medical professional'],
+    },
+  ],
+  items: [
+    { kind: 'typein', id: 'nut-t1', tags: ['macros'], prompt: 'How many kcal per gram does carbohydrate provide?', accept: ['4'], hints: ['Same as protein.', '_'], explanation: 'Carbohydrate provides 4 kcal/g.' },
+    { kind: 'typein', id: 'nut-t2', tags: ['macros'], prompt: 'How many kcal per gram does fat provide?', accept: ['9'], hints: ['More than double carbs/protein.', '_'], explanation: 'Fat provides 9 kcal/g.' },
+    { kind: 'typein', id: 'nut-t3', tags: ['macros'], prompt: 'How many kcal per gram does alcohol provide?', accept: ['7'], hints: ['Between carbs and fat.', '_'], explanation: 'Alcohol provides 7 kcal/g.' },
+    { kind: 'typein', id: 'nut-t4', tags: ['macros'], prompt: 'What does AMDR stand for?', accept: ['acceptable macronutrient distribution range', 'acceptable macronutrient distribution ranges'], hints: ['4 words.', 'A_________ M___________ D___________ R_____'], explanation: 'AMDR = Acceptable Macronutrient Distribution Range.' },
+    { kind: 'typein', id: 'nut-t5', tags: ['macros'], prompt: 'AMDR range for carbohydrates as % of total calories?', accept: ['45-65%', '45 to 65 percent', '45-65 percent'], hints: ['The widest range of the three.', '__-__%'], explanation: 'AMDR for carbohydrate is 45–65% of total calories.' },
+    { kind: 'typein', id: 'nut-t6', tags: ['macros'], prompt: 'ISSN recommended protein range for exercising individuals (g/kg body weight)?', accept: ['1.4-2.0', '1.4 to 2.0', '1.4-2.0 g/kg'], hints: ['Two decimal numbers.', '_._-_._'], explanation: 'ISSN recommends 1.4–2.0 g/kg body weight of protein for most exercising individuals.' },
+    { kind: 'typein', id: 'nut-t7', tags: ['micros'], prompt: 'How many B vitamins are there?', accept: ['8'], hints: ['A single digit.', '_'], explanation: 'There are 8 B vitamins.' },
+    { kind: 'typein', id: 'nut-t8', tags: ['micros'], prompt: 'Name the 4 fat-soluble vitamins.', accept: ['a d e k', 'a, d, e, k'], hints: ['4 letters.', 'A, _, _, K'], explanation: 'The fat-soluble vitamins are A, D, E, and K.' },
+    { kind: 'typein', id: 'nut-t9', tags: ['energy-balance'], prompt: 'Roughly how many kcal is equivalent to 1 lb of stored body fat?', accept: ['3500', '3,500'], hints: ['A 4-digit number.', '3,___'], explanation: '~3,500 kcal is roughly equivalent to 1 lb of stored body fat.' },
+    { kind: 'typein', id: 'nut-t10', tags: ['scope'], prompt: 'What should a trainer do if a client insists on using a steroid?', accept: ['tell them no and refer to a licensed medical professional', 'say no and refer to a doctor', 'decline and refer to a medical professional'], hints: ['Two parts: decline + refer.', 'Tell them n_ and r____'], explanation: 'Decline and refer the client to a licensed medical professional — this is outside a trainer\'s scope.' },
+    {
+      kind: 'mcq', id: 'nut-m1', tags: ['labels'], source: 'original',
+      prompt: 'What is a primary difference between a food label and a supplement label?',
+      options: [
+        'A supplement label only needs to list what is present, not specific amounts.',
+        'A food label only needs to list what is present, not specific amounts.',
+        'There is no meaningful regulatory difference.',
+        'Supplement labels are more strictly regulated than food labels.',
+      ],
+      answer: 0,
+      explanation: 'Supplement labels can disclose an ingredient as present (e.g. in a proprietary blend) without specifying the exact amount, unlike food labels.',
+      whyWrong: ['', 'This is backwards — food labels require specific amounts.', 'There is a meaningful difference in disclosure requirements.', 'Supplement labels are generally less strictly regulated, not more.'],
+    },
+    {
+      kind: 'mcq', id: 'nut-m2', tags: ['macros'], source: 'original',
+      prompt: 'A client on a strict low-carbohydrate diet complains of fatigue during training sessions. What is the most likely cause?',
+      options: ['Inadequate carbohydrate intake', 'Excess fat intake', 'Inadequate fat intake', 'Too much protein'],
+      answer: 0,
+      explanation: 'Carbohydrate is the body\'s primary readily-available training fuel; restricting it too far is a well-documented cause of training fatigue.',
+      whyWrong: ['', 'Excess fat intake is not the flagged issue on a specifically low-carb diet.', 'Fat intake is not the primary energy concern in this scenario.', 'Excess protein is not the typical cause of training fatigue in this scenario.'],
+    },
+  ],
+}

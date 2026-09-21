@@ -4,8 +4,22 @@ import { acuteVariables } from './modules/acute-variables'
 import { muscleImbalances } from './modules/muscle-imbalances'
 import { vtZoneLab } from './modules/vt-zone-lab'
 import { behaviorChange } from './modules/behavior-change'
+import { nervousSkeletalMuscular } from './modules/d1-nervous-skeletal-muscular'
+import { endocrineCardiorespBioenergetics } from './modules/d1-endocrine-cardioresp-bioenergetics'
+import { biomechanicsHms } from './modules/d1-biomechanics-hms'
+import { nutrition } from './modules/d1-nutrition'
 
-export const MODULES: Module[] = [optModel, acuteVariables, muscleImbalances, vtZoneLab, behaviorChange]
+export const MODULES: Module[] = [
+  optModel,
+  acuteVariables,
+  muscleImbalances,
+  vtZoneLab,
+  behaviorChange,
+  nervousSkeletalMuscular,
+  endocrineCardiorespBioenergetics,
+  biomechanicsHms,
+  nutrition,
+]
 
 export const MODULE_MAP: Record<string, Module> = Object.fromEntries(MODULES.map((m) => [m.id, m]))
 
